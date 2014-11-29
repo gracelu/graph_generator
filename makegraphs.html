@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Graphs</title>
+    
+    <!-- local css file -->
+    <link rel="stylesheet" href="styleguide.css">
+       
+    <!-- bootstrap -->
+    <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    
+    <!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+            
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    
+    <!-- d3 -->
+    <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?1.29.1"></script>
+     
+    <!-- cola -->
+    <script src="http://marvl.infotech.monash.edu/webcola/cola.v3.min.js"></script>
+</head>
+
+<pheading>Welcome to the GraphSQL k-Neighborhood Graph Generator</pheading>
+
+<br><br>
+
+<p>Graph Data</p>
+
+<!-- graph data input form -->
+<form class="form-horizontal" role="form">
+    <div class="form-group">
+        <label for="source_id" class="col-sm-1 control-label">Source ID</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="sourcei" placeholder="enter source id">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="query" class="col-sm-1 control-label">Query</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="query" placeholder="/rest/kneighborhood//AMERICAN%20PORTWELL%20Fremont%20-%2014466?depth=21&vertices=true&edges=true">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-0 col-sm-10">
+        <label for="depth" class="col-sm-1 control-label">Depth</label>
+        <div class="col-sm-1">
+        <select id="depth" class="form-control">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+        </select>
+         </div>
+        </div>
+    </div>
+</form>
+
+<p>Graph Options</p>
+
+<form class="form-horizontal" role="form">
+    <div class="form-group">
+        <div class="col-sm-offset-0 col-sm-10">
+            <label for="layout" class="col-sm-3 control-label">Select Layout</label>
+            <div class="col-sm-2 col-sm-offset-0">
+                <select id="layout" class="form-control" onchange= "whichlayout(this.value)">
+                    <option selected=True>Constrained</option>
+                    <option>Force</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="form-group">
+        <div class="col-sm-offset-0 col-sm-10">
+            <label for="elength" class="col-sm-3 control-label">Edge Length (only for Constrained)</label>
+            <div class="col-sm-1">
+                <select id="elength" class="form-control" onchange= "cola_elength(this.value)">
+                    <option>100</option>
+                    <option>200</option>
+                    <option selected=True>300</option>
+                    <option>400</option>
+                    <option>500</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    
+    
+</form>
+
+<div class="form-group">
+    <div class="col-sm-offset-0 col-sm-10">
+        <button type="execute" class="btn btn-warning" id= "execute">Let's Generate a Graph!</button>
+       <button type="execute" class="btn btn-warning" onClick="history.go(0)">Refresh</button>
+    </div>
+</div>
+
+
+
+<br><br>
+<hr size="15" align="left" color="blue">
+
+<p>Visualization Options  <p2>(generate a graph before changing these attributes)</p2></p>
+<!-- <p2>(generate a graph before changing these attributes)</p2> -->
+
+<form class="form-horizontal" role="form">
+    <div class="form-group">
+        <div class="col-sm-offset-0 col-sm-10">
+            <label for="node-color" class="col-sm-1 control-label">Node Color</label>
+            <div class="col-sm-2">
+                <select id="node-color" class="form-control" onchange= "change_ncolor(this.value)">
+                    <option>red</option>
+                    <option>orange</option>
+                    <option>yellow</option>
+                    <option>green</option>
+                    <option selected=True >blue</option>
+                    <option>purple</option>
+                    <option>black</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <div class="col-sm-offset-0 col-sm-10">
+            <label for="node-size" class="col-sm-1 control-label">Node Size</label>
+            <div class="col-sm-1">
+                <select id="node-size" class="form-control" onchange= "change_nsize(this.value)">
+                    <option>5</option>
+                    <option selected=True>10</option>
+                    <option>15</option>
+                    <option>20</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    
+   </form>
+
+<body>
+    
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    
+    <!-- local javascript file -->
+    <script type="text/javascript" src= "main.js"></script>
+    
+</body>
+
+</html>

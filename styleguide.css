@@ -1,0 +1,39 @@
+p{
+    color: blue;
+    font-size: 15pt;
+    font-weight: bold;
+}
+
+p2{
+    color: blue;
+    font-size: 12pt;
+    font-weight: normal;
+}
+
+pheading{
+    color: orange;
+    background-color: blue;
+    font-size: 20pt;
+    text-shadow: -2px 2px 2px #999;
+    margin: 0;
+    margin-bottom: 7pt;
+    padding: 4px;
+    text-align: center;
+    border: 5px orange solid;
+    border-radius: 10px;  
+}
+
+circle{
+    fill: blue;
+}
+
+circle:hover{
+   fill: orange;
+}
+
+.button{
+    color: orange;
+}
+text{
+   font-family: "Times New Roman"; 
+}
